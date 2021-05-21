@@ -52,10 +52,19 @@ const Main = (props) => {
 
 
     useEffect(()=>{
-
+        const onPreview = () =>{
+            try {       
+                let tempBoard = GameBoard.placeShip(board,cursor.X,cursor.Y,shipDirection,shipSet[0]);
+                setPrevBoard(tempBoard);      
+                
+            } catch (error) {
+                
+            }
+    
+        }
         onPreview();
 
-    },[cursor.X,cursor.Y,shipDirection]);
+    },[cursor.X,cursor.Y,shipDirection,board,shipSet]);
 
 
 
@@ -65,16 +74,7 @@ const Main = (props) => {
 
     }
 
-    const onPreview = () =>{
-        try {       
-            let tempBoard = GameBoard.placeShip(board,cursor.X,cursor.Y,shipDirection,shipSet[0]);
-            setPrevBoard(tempBoard);      
-            
-        } catch (error) {
-            
-        }
-
-    }
+    
 
     const aiMove = async() =>{
         let moveCoords=0;
@@ -192,7 +192,7 @@ const Main = (props) => {
     }
 
     const handleStart = async()=>{
-        await new Promise(r => setTimeout(r, 200));
+        await new Promise(r => setTimeout(r, 100));
         let tempBoard = placeShipsRandomly(aiBoard);
         setAiBoard(tempBoard);
         setGameStarted(1);

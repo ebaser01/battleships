@@ -5,12 +5,7 @@ import sound2 from '../sounds/splash.mp3';
 
 var hitSound = new Audio(sound1);
 var splashSound = new Audio(sound2);
-const logs = [
-    {playerMiss:'You missed'},
-    {aiMiss:'Computer missed'},
-    {playerHit:'You hit, keep going'},
-    {aiHit: 'You are hit!'}
-]
+
 const GameBoard = (() => {
     return{
     createNewBoard(){
@@ -47,7 +42,7 @@ const GameBoard = (() => {
         if(rotation==='H'){
             for(let i=coordY; i<coordY+Ship.length;i++){
                 if(newBoard[coordX][i].shipInside !==false){
-                    throw 'Not valid';
+                    throw new Error('not valid');
                 };
             }
             if((coordY+Ship.length-1)>9 || newBoard[coordX][coordY].shipInside!==false){return false};
@@ -63,7 +58,7 @@ const GameBoard = (() => {
         else{
             for(let i=coordX; i<coordX+Ship.length;i++){
                 if(newBoard[i][coordY].shipInside !==false){
-                    throw 'Not valid';
+                    throw new Error('not valid');
                 };
             }
             if((coordX+Ship.length-1)>9 || newBoard[coordX][coordY].shipInside!==false){return false};

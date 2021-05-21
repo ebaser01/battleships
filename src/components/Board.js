@@ -39,7 +39,7 @@ const Board = (props) => {
                 return <span>O</span>;
             }
             else{
-                return <img src={hitsvg}/>;
+                return <img src={hitsvg} alt='hit_icon'/>;
             }
         }
     }

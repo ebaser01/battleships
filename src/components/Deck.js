@@ -1,5 +1,4 @@
 import React from 'react';
-import Ship from '../factories/Ship';
 import ShipComponent from './ShipComponent';
 
 function Deck(props){
