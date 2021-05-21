@@ -1,38 +1,127 @@
-.App {
+*{
   text-align: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title-area{
+  background-image: radial-gradient( circle farthest-corner at 16.5% 28.1%,  rgba(15,27,49,1) 0%, rgba(0,112,218,1) 90% );
+  height: 80px;
+  line-height: 80px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+h1{
+  color: white;
+  font-weight: 100;
+  font-family: 'Anton', sans-serif;
+}
+
+.main{
+  background-image: url('./images/bg.jpg');
+  background-size: cover;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.board-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-board{
+  margin: 30px;
+  width: 300px;
+  display: grid;
+  grid-template-columns: repeat(10,1fr);
+  grid-template-rows: repeat(10,1fr);
+  animation: appear 0.5s;
+}
+.cell{
+  border: 1px solid rgba(75, 75, 75, 0.411);
+  width: 30px;
+  height: 30px;
+  line-height: 27px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+  font-weight: 600;
+}
+.cell img{
+  animation: appear 0.3s ease;
+}
+.cell span{
+  animation: appear 0.3s ease;
+}
+@keyframes appear {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ship{
+  margin: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.ship-piece{
+  width: 20px;
+  height: 20px;
+}
+.button-container{
+  width: 100%;
+}
+button{
+  margin-top: 15px;
+  width: 305px;
+  height: 30px;
+  outline: none;
+  border: 1px solid rgba(4, 0, 255, 0.548);
+  border-radius: 2px;
+  background-image: radial-gradient( circle farthest-corner at 16.5% 28.1%,  rgba(15,27,49,1) 0%, rgba(0,112,218,1) 90% );
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  opacity: 0.9;
+  animation: dissappear;
+}
+button:hover{
+  opacity: 1;
+  cursor: pointer;
+  box-shadow: 0 0 5px #000000;
+}
+button:active{
+  margin-top: 3px;
+}
+
+.deck{
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.308);
+  margin: 20px;
+  display: flex;
+  justify-content:stretch;
+  max-width: 300px;
+  max-height: 150px;
+}
+
+.log-board{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  font-size: 25px;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  line-height: 50px;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  background: #000000;
+  background: -webkit-linear-gradient(to right, #434343a1, #0000008c);  
+  background: linear-gradient(to right, #434343b6, #000000c5);
+  
 }
