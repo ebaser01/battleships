@@ -249,6 +249,7 @@ const Main = (props) => {
         <div className="main">
             <Header/>
             <div className='board-container'>
+                <div className='hint'>Press 'R' to change rotation of your ships.</div>
                 <Board user='player' board={gameStarted===0?prevBoard:board} onPlace={onPlace} handlePosition={handlePosition} turn={turn} gameFinished={gameFinished} />
                 {shipSet.length!==0 ? 
                 <Deck shipSet={shipSet}/> : 
